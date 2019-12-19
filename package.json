@@ -1,0 +1,52 @@
+{
+  "name": "brainscrape",
+  "version": "1.0.0",
+  "description": "Scrape BrainScape for Cards",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf lib && tsc -p tsconfig.build.json",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.24",
+    "@types/node-fetch": "^2.5.4",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*\\.(test|spec))\\.(ts|tsx|js)$",
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "modulePaths": [
+      "src"
+    ],
+    "moduleNameMapper": {
+      "src/(.*)": "<rootDir>/src/$1"
+    },
+    "coverageDirectory": "<rootDir>/coverage",
+    "transform": {
+      "\\.(ts|tsx)": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "globals": {}
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "node-html-parser": "^1.1.16",
+    "ts-lib": "0.0.5",
+    "tslib": "^1.10.0"
+  }
+}
