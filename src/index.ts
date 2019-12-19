@@ -6,10 +6,16 @@ import { Pack } from './models/pack.model';
 
 export const parseTags = (text: string): string[] => text.replace('\nTags:\n', '').split(',\n').map(t => t.replace('\n', ''));
 
-export const parseCard = (card: HTMLElement): Card => ({
-    question: card.querySelector('.card-question-text').text,
-    answer: card.querySelector('.card-answer-text').text
-})
+export const parseCard = (card: HTMLElement): Card => {
+
+    const question = card.querySelector('.card-question-text').structuredText;
+    const answer = card.querySelector('.card-answer-text').structuredText;
+
+    return {
+        question: question, // only gets first match of \n
+        answer: answer,
+    }
+};
 
 export const getDeck = async (url: string): Promise<Deck> => {
     const dom = parse(await fetch(url).then(a => a.text())) as HTMLElement;
@@ -45,3 +51,20 @@ export const getPack = async (url: string): Promise<Pack> => {
         tags,
     }
 }
+
+export const main = async () => {
+    if (require.main !== module) return;
+
+    const args = process.argv.slice(2);
+
+    if (!args.length) {
+        console.log('Expected a BrainScape pack URL');
+        return;
+    }
+
+    const pack = await getPack(args[0]);
+
+    console.log(JSON.stringify(pack));
+};
+
+main();
