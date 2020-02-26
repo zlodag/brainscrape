@@ -1,7 +1,7 @@
 {
-  "name": "brainscrape",
+  "name": "brainscrape_tsv",
   "version": "1.0.0",
-  "description": "Scrape BrainScape for Cards",
+  "description": "Scrape BrainScape for Cards and export into TSV",
   "main": "index.js",
   "scripts": {
     "build": "rimraf lib && tsc -p tsconfig.build.json",
@@ -11,11 +11,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/jest": "^24.0.24",
-    "@types/node-fetch": "^2.5.4",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^13.7.6",
+    "@types/node-fetch": "^2.5.5",
     "jest": "^24.9.0",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.7.3"
+    "ts-jest": "^24.3.0",
+    "typescript": "^3.8.2"
   },
   "jest": {
     "testEnvironment": "node",
@@ -45,8 +46,8 @@
   },
   "dependencies": {
     "node-fetch": "^2.6.0",
-    "node-html-parser": "^1.1.16",
+    "node-html-parser": "^1.2.7",
     "ts-lib": "0.0.5",
-    "tslib": "^1.10.0"
+    "tslib": "^1.11.0"
   }
 }
